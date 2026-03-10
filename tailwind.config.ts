@@ -23,8 +23,8 @@ const config: Config = {
         foreground: "#FFFFFF",
       },
       fontFamily: {
-        display: ["var(--font-syne)", "sans-serif"],
-        body:    ["var(--font-dm-sans)", "sans-serif"],
+        display: ["Syne", "sans-serif"],
+        body:    ["DM Sans", "sans-serif"],
       },
       backgroundImage: {
         "hero-gradient": "radial-gradient(ellipse at top left, #1B3A6B 0%, #0A0F1E 60%)",

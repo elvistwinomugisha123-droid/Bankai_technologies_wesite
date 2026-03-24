@@ -3,6 +3,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import JsonLd from "@/components/JsonLd";
+// import { GoogleAnalytics } from "@next/third-parties/google";
+// Add GA4: npm install @next/third-parties, then uncomment and replace G-XXXXXXXXXX with your Measurement ID
 
 export const metadata: Metadata = {
   title: {
@@ -20,6 +23,7 @@ export const metadata: Metadata = {
     "BankaiRx",
     "ATE academic track engine",
   ],
+  metadataBase: new URL("https://bankaitech.com"),
   authors: [{ name: "Bankai Technologies" }],
   creator: "Bankai Technologies",
   openGraph: {
@@ -35,7 +39,7 @@ export const metadata: Metadata = {
         url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "Bankai Technologies",
+        alt: "Bankai Technologies — AI company Kampala Uganda",
       },
     ],
   },
@@ -63,6 +67,8 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <JsonLd />
+        {/* <GoogleAnalytics gaId="G-XXXXXXXXXX" /> */}
       </body>
     </html>
   );

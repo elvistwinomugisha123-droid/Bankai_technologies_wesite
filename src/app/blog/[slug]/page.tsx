@@ -34,8 +34,17 @@ export async function generateMetadata({
   const post = getPost(slug);
   if (!post) return { title: "Post Not Found" };
   return {
-    title: post.data.title,
-    description: post.data.excerpt,
+    title: post.data.title as string,
+    description: post.data.excerpt as string,
+    openGraph: {
+      type: "article",
+      title: post.data.title as string,
+      description: post.data.excerpt as string,
+      url: `https://bankaitech.com/blog/${slug}`,
+      siteName: "Bankai Technologies",
+      publishedTime: post.data.date as string,
+      authors: [post.data.author as string],
+    },
   };
 }
 
@@ -50,8 +59,33 @@ export default async function BlogPostPage({
 
   const { data, content } = post;
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: data.title as string,
+    description: data.excerpt as string,
+    datePublished: data.date as string,
+    author: {
+      "@type": "Person",
+      name: data.author as string,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Bankai Technologies",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://bankaitech.com/logo.png",
+      },
+    },
+    url: `https://bankaitech.com/blog/${slug}`,
+  };
+
   return (
     <div className="pt-24 bg-bankai-black min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
       <article className="section-padding">
         <div className="container-max max-w-3xl mx-auto">
           {/* Back */}

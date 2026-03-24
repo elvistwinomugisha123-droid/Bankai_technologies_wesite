@@ -5,8 +5,9 @@ import matter from "gray-matter";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Blog — Bankai Technologies",
-  description: "Insights on AI for African businesses, pharmacy automation, school management, and building tech in Uganda.",
+  title: "Blog — AI Insights for African Business | Bankai Technologies",
+  description:
+    "Practical insights on AI, automation, and technology for African businesses from the Bankai Technologies team in Kampala, Uganda.",
 };
 
 interface PostMeta {
